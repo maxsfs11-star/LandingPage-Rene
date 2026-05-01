@@ -1,0 +1,1094 @@
+/* Variáveis globais sugeridas para manter o padrão */
+:root {
+  --primary: #d8aa8e; /* Um tom de bronze/pele saudável, ajuste conforme a identidade dele */
+  --primary-dark: #b88a6e;
+  --bg-dark: #0a110f; /* Verde bem escuro/preto para dar cara de performance */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  background-color: #000;
+
+  /* Colocamos o gradiente animado por cima, e a logo dele por baixo */
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(10, 61, 46, 0.7) 0%,
+      rgba(10, 17, 15, 0.8) 100%
+    ),
+    url("/images/fundo-lagartixa.jpg");
+
+  background-size:
+    300% 300%,
+    cover;
+  background-position:
+    0% 50%,
+    center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
+
+  /* Chamamos a sua animação de volta! */
+  animation: bgBreathe 15s ease-in-out infinite;
+}
+
+/* O fundo vai pulsar suavemente de um lado para o outro */
+@keyframes bgBreathe {
+  0% {
+    background-position:
+      0% 50%,
+      center;
+  }
+  50% {
+    background-position:
+      100% 50%,
+      center;
+  }
+  100% {
+    background-position:
+      0% 50%,
+      center;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+
+  /* O TRUQUE AQUI: Gradiente escuro animado (camada 1) + Logo (camada 2) */
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(10, 61, 46, 0.85),
+      rgba(0, 0, 0, 0.95),
+      rgba(10, 61, 46, 0.85)
+    ),
+    url("/images/logo-cliente.png");
+
+  /* Tamanho 300% para o gradiente ter espaço para se mover, cover para a logo preencher o fundo */
+  background-size:
+    300% 300%,
+    cover;
+  /* Posição inicial: gradiente no canto, logo no centro */
+  background-position:
+    0% 50%,
+    center;
+  background-repeat: no-repeat, no-repeat;
+
+  color: #fff;
+  overflow: hidden;
+
+  /* Trazendo a sua animação de volta, focada apenas no Hero */
+  animation: heroBreathe 15s ease-in-out infinite;
+}
+
+/* Animação que faz o fundo "respirar" */
+@keyframes heroBreathe {
+  0% {
+    background-position:
+      0% 50%,
+      center;
+  }
+  50% {
+    background-position:
+      100% 50%,
+      center;
+  }
+  100% {
+    background-position:
+      0% 50%,
+      center;
+  }
+}
+.hero-content {
+  width: 50%;
+  animation: fadeInLeft 1s ease forwards;
+  z-index: 2; /* Garante que o texto fique acima de qualquer efeito de fundo */
+}
+
+.hero-title {
+  font-size: clamp(
+    3rem,
+    5vw,
+    5rem
+  ); /* Tamanho fluido: cresce e diminui com a tela */
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  line-height: 1.1;
+  text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra escura para destacar */
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  margin-bottom: 40px;
+  color: #e0e0e0;
+  line-height: 1.4;
+}
+
+.btn-cta {
+  display: inline-block;
+  padding: 16px 40px;
+  background-color: var(--primary);
+  color: #000;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(216, 170, 142, 0.3);
+}
+
+.btn-cta:hover {
+  transform: translateY(-3px);
+  background-color: var(--primary-dark);
+  box-shadow: 0 12px 25px rgba(216, 170, 142, 0.5);
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 20px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+
+  /* Aqui entra a mágica: uma animação de 6 segundos em loop infinito */
+  animation: floatImage 6s ease-in-out infinite;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  object-fit: cover;
+}
+
+/* ANIMAÇÕES MAIS SUAVES */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* RESPONSIVIDADE PARA CELULARES E TABLETS */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 5% 60px;
+    gap: 50px;
+  }
+
+  .hero-content,
+  .hero-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    max-width: 400px;
+  }
+}
+
+/* Badge estiloso acima do título */
+.hero-badge {
+  display: inline-block;
+  background: rgba(216, 170, 142, 0.15);
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border: 1px solid rgba(216, 170, 142, 0.3);
+  letter-spacing: 1px;
+}
+
+/* Container das estatísticas */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  backdrop-filter: blur(10px); /* Efeito de vidro borrado bem moderno */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: fit-content;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.stat-divider {
+  width: 2px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustes no botão e texto de apoio */
+.hero-action {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.action-hint {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+/* Novo Wrapper para a imagem com o efeito de brilho */
+.hero-image-wrapper {
+  width: 45%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 1s ease forwards;
+}
+
+/* Efeito de luz atrás da foto */
+.image-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--primary);
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.hero-image {
+  width: 120%;
+  max-width: 550px;
+  border-radius: 20px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1; /* Garante que a foto fique acima do brilho */
+}
+
+/* Estilos do Topo / Header */
+.hero-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 8%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 10; /* Garante que fique acima de tudo */
+}
+
+.header-logo {
+  width: 45px; /* Tamanho pequeno e elegante */
+  height: auto;
+  filter: drop-shadow(
+    0 2px 4px rgba(0, 0, 0, 0.5)
+  ); /* Destaca a logo do fundo escuro */
+}
+
+.header-brand {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsividade do Header para Mobile */
+@media (max-width: 992px) {
+  .hero-header {
+    justify-content: center; /* Centraliza a logo no celular */
+    padding: 20px 5%;
+  }
+}
+
+/* Responsivo para os Stats */
+@media (max-width: 992px) {
+  .hero-stats {
+    margin: 0 auto 40px auto;
+  }
+  .hero-action {
+    flex-direction: column;
+  }
+}
+
+@keyframes floatImage {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px); /* A foto sobe 15 pixels bem suavemente */
+  }
+  100% {
+    transform: translateY(0px); /* A foto desce e volta ao normal */
+  }
+}
+
+/* SEÇÃO ABOUT */
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 8%;
+  /* Fundo escuro levemente transparente para mesclar com o body */
+  background-color: rgba(10, 17, 15, 0.95);
+  gap: 60px;
+}
+
+/* IMAGEM LIMPA COM DECORAÇÃO */
+.about-image-wrapper {
+  width: 45%;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-60px); /* Começa 60px para a esquerda */
+  transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Moldura deslocada atrás da foto */
+.about-image-decoration {
+  position: absolute;
+  top: 25px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--primary);
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+  object-fit: cover;
+
+  /* FILTRO DE PERFORMANCE: Aumenta o contraste e a saturação levemente para destacar a luz do sol */
+  filter: contrast(1.15) saturate(1.1)
+    drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
+
+  /* EFEITO FADE: Faz a parte de baixo da foto sumir gradualmente no fundo escuro */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* CONTEÚDO DA HISTÓRIA */
+.about-content {
+  width: 50%;
+  opacity: 0;
+  transform: translateX(60px); /* Começa 60px para a direita */
+  /* O delay de 0.3s faz o texto entrar um pouquinho depois da foto */
+  transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) 0.3s;
+}
+
+.animate-about .about-image-wrapper,
+.animate-about .about-content {
+  opacity: 1;
+  transform: translateX(0); /* Volta para a posição original */
+}
+
+.section-subtitle {
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.about-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: #fff;
+  margin-bottom: 30px;
+  line-height: 1.1;
+}
+
+.about-text {
+  color: #cccccc;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* CITAÇÃO DESTACADA */
+.about-quote {
+  border-left: 4px solid var(--primary);
+  margin: 30px 0;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #fff;
+  font-weight: 600;
+  background: rgba(216, 170, 142, 0.05);
+  padding: 20px 20px 20px 25px;
+  border-radius: 0 10px 10px 0;
+}
+
+/* RESPONSIVIDADE MOBILE */
+@media (max-width: 992px) {
+  .about {
+    flex-direction: column-reverse; /* No celular, o texto vai para cima e a foto para baixo */
+    padding: 80px 5%;
+    text-align: center;
+  }
+
+  .about-content,
+  .about-image-wrapper {
+    width: 100%;
+  }
+
+  .about-quote {
+    text-align: left; /* Mantém a citação legível mesmo com a seção centralizada */
+  }
+
+  .about-image-decoration {
+    top: 15px;
+    left: -10px;
+  }
+}
+
+/* SEÇÃO CONQUISTAS */
+.achievements {
+  padding: 100px 8%;
+  background-color: var(--bg-dark);
+  text-align: center;
+}
+
+.achievements-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: #fff;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* GRID DOS CARDS */
+.achievements-grid {
+  display: grid;
+  /* Cria colunas responsivas automaticamente sem precisar de Media Query */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* CARD 3D */
+.achievement-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px 20px;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  overflow: hidden; /* Importante para a luz não vazar do card */
+  /* Sombrinha de profundidade */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform-style: preserve-3d;
+}
+
+/* EFEITO DE LUZ SEGUINDO O MOUSE */
+.achievement-card::before {
+  content: "";
+  position: absolute;
+  top: var(--my, 50%);
+  left: var(--mx, 50%);
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  /* Brilho radial usando a cor primária */
+  background: radial-gradient(
+    circle,
+    rgba(216, 170, 142, 0.15) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Ignora cliques na luz */
+  z-index: 0;
+}
+
+.achievement-card:hover::before {
+  opacity: 1;
+}
+
+/* CONTEÚDO DO CARD (Acima da luz) */
+.achievement-icon,
+.achievement-card-title,
+.achievement-card-desc {
+  position: relative;
+  z-index: 1;
+  /* Efeito de descolamento 3D sutil para o conteúdo */
+  transform: translateZ(30px);
+}
+
+.achievement-icon {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 10px rgba(216, 170, 142, 0.4));
+}
+
+.achievement-card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.achievement-card-desc {
+  font-size: 1rem;
+  color: #b0b0b0;
+  line-height: 1.5;
+}
+
+/* SEÇÃO DE TRANSFORMAÇÃO */
+.transformation {
+  padding: 100px 8%;
+  background-color: #050807; /* Um tom ainda mais profundo para intercalar com o About */
+  color: #fff;
+}
+
+.transformation-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+}
+
+.transformation-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.transformation-text {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* GRID DE CARDS */
+.transformation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.transform-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 20px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.transform-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.transform-images {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* FOTOS LIMPAS */
+.image-container img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  /* Um filtro leve para padronizar o tom das fotos dele */
+  filter: contrast(1.05) saturate(1.05);
+  transition: transform 0.5s ease;
+}
+
+.transform-card:hover .image-container img {
+  transform: scale(1.05); /* Efeito de zoom suave ao passar o mouse no card */
+}
+
+/* TAGS FLUTUANTES (Fora da área principal da foto) */
+.image-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tag-antes {
+  background-color: #333;
+  color: #ccc;
+}
+
+.tag-depois {
+  background-color: var(--primary);
+  color: #000;
+}
+
+.transform-footer p {
+  font-size: 1rem;
+  color: #e0e0e0;
+  text-align: center;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .transform-images {
+    flex-direction: column; /* No mobile, empilha o Antes e Depois para não ficar espremido */
+    gap: 10px;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 350px; /* Você pode aumentar isso para 400px se quiser fotos mais altas */
+    object-fit: cover; /* Isso corta a foto perfeitamente sem amassar o shape dele */
+    object-position: top; /* Garante que o rosto/ombros não sejam cortados */
+    display: block;
+  }
+}
+
+/* SEÇÃO DE CURSOS */
+.courses {
+  padding: 100px 8%;
+  background: linear-gradient(180deg, #050807 0%, var(--bg-dark) 100%);
+  color: #fff;
+}
+
+.courses-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+}
+
+.courses-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.courses-text {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* GRID DE CURSOS */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* CARDS DOS CURSOS */
+.course-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(216, 170, 142, 0.2);
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border-color: var(--primary);
+}
+
+.course-badge {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.course-name {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.course-desc {
+  color: #d0d0d0;
+  line-height: 1.6;
+  flex-grow: 1; /* Empurra o footer para baixo caso os textos tenham tamanhos diferentes */
+  margin-bottom: 30px;
+}
+
+/* RODAPÉ DO CARD E BOTÃO */
+.course-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 25px;
+}
+
+.course-price {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.btn-buy {
+  padding: 12px 25px;
+  background-color: var(--primary);
+  color: #000;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+  background-color: var(--primary-dark);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(216, 170, 142, 0.4);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .course-footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .btn-buy {
+    width: 100%;
+  }
+}
+
+/* SEÇÃO DE GALERIA */
+.gallery {
+  padding: 100px 8%;
+  background-color: var(--bg-dark);
+  text-align: center;
+}
+
+.gallery-header {
+  margin-bottom: 60px;
+}
+
+.gallery-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.gallery-text {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* GRID DA GALERIA */
+.gallery-grid {
+  display: grid;
+  /* Cria colunas que se ajustam sozinhas (no mínimo 280px de largura) */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1; /* O SEGREDO: Força todas as divs a serem quadrados perfeitos */
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* IMAGEM E EFEITOS */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a foto preencha o quadrado sem distorcer */
+  object-position: center 20%;
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+  /* Deixa as fotos levemente "dramáticas" (meio cinzas) antes do mouse passar */
+  filter: grayscale(40%) contrast(1.1);
+}
+
+/* Quando o usuário passa o mouse: zoom + cor total */
+.gallery-item:hover .gallery-image {
+  transform: scale(1.1);
+  filter: grayscale(0%) contrast(1.1);
+}
+
+/* Sombra extra interna no hover para dar profundidade */
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* FOOTER PRINCIPAL */
+.footer {
+  background-color: #050a09; /* Um tom acima do preto puro */
+  padding: 80px 8% 30px;
+  color: #fff;
+  border-top: 1px solid rgba(16, 61, 46, 0.3);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.footer-logo span {
+  color: #d8aa8e; /* Cor destaque que usamos no resto do site */
+}
+
+.footer-brand p {
+  color: #b0b0b0;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #d8aa8e;
+}
+
+/* NAVEGAÇÃO NO RODAPÉ */
+.footer-nav h3,
+.footer-contact h3 {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav ul li {
+  margin-bottom: 12px;
+}
+
+.footer-nav ul li a {
+  color: #b0b0b0;
+  text-decoration: none;
+  transition:
+    padding-left 0.3s ease,
+    color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+  color: #fff;
+  padding-left: 8px;
+}
+
+/* CONTATO */
+.footer-wa-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #25d366;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 15px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.footer-wa-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+}
+
+/* BASE FINAL */
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.dev-signature {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* BOTÃO FLUTUANTE WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #128c7e;
+}
+
+/* Responsivo para o botão não ficar em cima de elementos no mobile */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 25px;
+  }
+}
+
+.brand-name {
+  font-weight: 700;
+  color: #d8aa8e; /* Use a cor da sua logo aqui se preferir */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
