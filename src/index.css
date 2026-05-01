@@ -1092,3 +1092,48 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+/* Prepara o contêiner da palavra RUNNER */
+.runner-text {
+  position: relative;
+  display: inline-block; /* Importante para o relative funcionar no texto */
+}
+
+/* O mascote subindo no R */
+.lagartixa-title-icon {
+  position: absolute;
+  rotate: -10deg; /* Gira a lagartixa para parecer que está escalando o "R" */
+  filter: drop-shadow(0 0 8px rgba(173, 255, 47, 0.6))
+    /* Glow suave verde claro */ drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.8));
+  /* Os valores abaixo você ajusta conforme o tamanho do seu ícone */
+  width: 80px; /* Ajuste o tamanho da lagartixa */
+  top: -40px; /* Joga ela para cima */
+  left: 340px; /* Joga ela para a esquerda do "R" */
+
+  /* Um leve giro para parecer que está escalando */
+  transform: rotate(15deg);
+
+  z-index: 10; /* Garante que fique por cima da letra */
+
+  /* Animação opcional: um leve balanço */
+  animation: climb 3s infinite alternate ease-in-out;
+}
+
+/* Animação bônus da VM Digital */
+@keyframes climb {
+  0% {
+    transform: translateY(0) rotate(15deg);
+  }
+  100% {
+    transform: translateY(-5px) rotate(20deg);
+  }
+}
+
+/* Ajuste fino para Mobile */
+@media (max-width: 768px) {
+  .lagartixa-title-icon {
+    width: 45px;
+    top: 10px;
+    left: 250px;
+  }
+}

@@ -1,21 +1,20 @@
 export default function Hero() {
   return (
     <section className="hero">
-      <header className="hero-header">
-        {/* Substitua pelo caminho real da logo pequena */}
-        <img
-          src="/images/icone-lagartixa.png"
-          alt="Logo Lagartixa"
-          className="header-logo"
-        />
-        <span className="header-brand">
-          Lagartixa Runner - Rene Rogério Lima Prates
-        </span>
-      </header>
-
       <div className="hero-content">
         <div className="hero-badge">🚀 Transformação Real</div>
-        <h1 className="hero-title">Lagartixa Runner</h1>
+        <h1 className="hero-title">
+          LAGARTIXA <br />
+          <span className="runner-text">
+            {/* A imagem agora mora DENTRO do título */}
+            <img
+              src="/images/icone-lagartixa.png"
+              alt="Mascote Lagartixa"
+              className="lagartixa-title-icon"
+            />
+            RUNNER
+          </span>
+        </h1>
         <p className="hero-subtitle">
           Superando limites, conquistando vitórias e transformando o próprio
           corpo.
