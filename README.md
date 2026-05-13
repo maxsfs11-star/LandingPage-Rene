@@ -1,16 +1,80 @@
-# React + Vite
+# LandingPage René 💪
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing Page desenvolvida em React com foco em apresentar a trajetória, evolução e transformação de um atleta, utilizando uma experiência visual moderna, responsiva e voltada para performance e engajamento do usuário.
 
-Currently, two official plugins are available:
+O projeto foi pensado para destacar:
+- Evolução física do atleta
+- Sessão “Minha História”
+- Fotos de antes e depois
+- Rotina de treinos e disciplina
+- Apresentação visual motivacional
+- Estrutura futura para venda de cursos e mentorias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Tecnologias utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- CSS3
+- Vite
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Objetivos do projeto
+
+O principal objetivo da aplicação foi criar uma Landing Page moderna e impactante, transmitindo motivação, evolução pessoal e profissionalismo através de uma interface responsiva e intuitiva.
+
+O projeto também foi estruturado pensando em futuras expansões comerciais, incluindo:
+- Área de vendas de cursos
+- Integração com pagamentos online
+- Backend para gerenciamento de conteúdo
+- Integração futura com Stripe
+
+---
+
+## 📱 Funcionalidades atuais
+
+- Interface moderna e responsiva
+- Sessão “Sobre Mim”
+- Galeria de fotos
+- Comparativo de evolução física
+- Sessão motivacional
+- Estrutura visual preparada para expansão
+
+---
+
+## 🔧 Melhorias futuras
+
+- Integração com backend
+- Sistema de autenticação
+- Painel administrativo
+- Integração com Stripe
+- Área exclusiva para alunos
+- Cadastro e gerenciamento de cursos
+
+---
+
+## 🧠 Aprendizados durante o projeto
+
+Durante o desenvolvimento deste projeto, foram trabalhados conceitos importantes de:
+- Componentização com React
+- Organização de layout
+- Responsividade
+- Estruturação de páginas comerciais
+- Experiência do usuário (UI/UX)
+- Organização visual e hierarquia de conteúdo
+
+---
+
+## 📌 Status do projeto
+
+🚧 Projeto em evolução.
+
+Atualmente o foco principal está na experiência visual e estruturação do front-end. Novas funcionalidades poderão ser adicionadas futuramente conforme a evolução do projeto.
+
+---
+
+## 🌐 Deploy
+
+https://landing-page-rene.vercel.app/
